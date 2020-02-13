@@ -1,0 +1,2 @@
+﻿https://scanner.rttv.ru/api/Scanner/Index
+https://scanner.rttv.ru/api/Scanner/CheckRoles
