@@ -24,7 +24,7 @@ namespace RestClientTest
                 }
             }
 
-            BasicAuthWebClientTest restApi = new BasicAuthWebClientTest(new BasicAuthUser("avsasov","090693"));
+            BasicAuthWebClientTest restApi = new BasicAuthWebClientTest(new BasicAuthUser("test","12345"));
 
             var tasks = new List<HttpResponseMessage>();
 
