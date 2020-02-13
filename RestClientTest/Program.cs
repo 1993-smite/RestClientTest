@@ -27,7 +27,7 @@ namespace RestClientTest
             foreach (var url in urlList)
             {
                 var res = restApi.GetRequest(url);
-                Console.WriteLine(res);
+                Console.WriteLine(res); 
             }
             Console.ReadLine();
         }
