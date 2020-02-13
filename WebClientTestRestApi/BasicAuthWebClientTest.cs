@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,17 +20,24 @@ namespace WebClientTestRestApi
             _basicAuthUser = user;
         }
 
-        public string GetRequest(string url)
+        private async Task<HttpResponseMessage> Request(string url)
         {
-            string result;
-            using (var client = new WebClient())
+            HttpResponseMessage response;
+            using (var client = new HttpClient())
             {
                 string credentials = _basicAuthUser.GetCredential;
-                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
-                result = client.DownloadString(url);
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + credentials);
+                response = await client.GetAsync(url);
             }
 
-            return result;
+            return response;
+        }
+
+        public HttpResponseMessage GetRequest(string url)
+        {
+            var result = Request(url);
+
+            return result.Result;
         }
     }
 
