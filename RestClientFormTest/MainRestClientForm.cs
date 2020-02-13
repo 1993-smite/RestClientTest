@@ -37,7 +37,7 @@ namespace RestClientFormTest
 
         private void CheckUrls()
         {
-            BasicAuthWebClientTest restApi = new BasicAuthWebClientTest(new BasicAuthUser("avsasov", "090693"));
+            BasicAuthWebClientTest restApi = new BasicAuthWebClientTest(new BasicAuthUser("test", "12345"));
             for (int i = 0; i < urlList.Rows.Count; i++)
             {
                 var res = restApi.GetRequest((string) urlList.Rows[i].Cells[_urlIndex].Value);
